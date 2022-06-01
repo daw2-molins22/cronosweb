@@ -1,0 +1,218 @@
+*{
+	box-sizing: border-box; /*Calculan las medidas del elemento*/
+}
+
+body{
+	font-family: 'Roboto', sans-serif; /*Tipo de letra*/
+	background: #E5E5E5;
+}
+
+main {
+	max-width: 800px;
+	width: 90%; /*Ancho del 90%*/
+	margin: auto; /*Margen automatico*/
+	padding: 150px; /*Estructura de margen de elementos 40px*/
+	padding-bottom: 1%;
+	padding-top: 5%;
+
+}
+
+/*Estructura De 1 Columna*/
+.formulario{
+	display: grid;
+	grid-template-columns: 1fr; /*1 column*/
+	gap: 20px; /*Espacio 20px de los elementos - filas y columnas*/
+}
+
+h1{
+	text-align: center;
+}
+
+img{
+	width: 30%;
+	/*border-radius: 50%;*/
+	margin-left: 35%;
+	
+}
+
+/*Estructura Label*/
+.formulario__label{
+	display: block; /*Elemento tipo bloque para que abarque el 100%*/
+	font-weight: 700; /*Fuente Negrita*/
+	padding: 10px; /*Espacio entre el label*/
+	cursor: pointer; /*Pulsa el nombre y se selecciona el input*/
+}
+
+/**/
+.formulario__grupo-input{
+	position: relative; /*Icono x posicion relativa para luego poder moverlo al input*/
+}
+
+/*Propiedades Input*/
+.formulario__input{
+	width: 100%; /*Ancho de un 100%*/
+	background: #fff; /*Color de fondo blanco*/
+	border: 3px solid transparent; /*Borde transparente*/
+	border-radius: 3px; /*borde redondeado*/
+	height: 45px; /*Altura de 45px*/
+	line-height: 45px; /*Altura del texto, para que quede centrado*/
+	padding: 0 40px 0 40px; /*Arriba, Derecha, Abajo, Izquierda*/
+	transition: .3s ease all; /*Trasición*/
+}
+
+/*Cuando al input le den un click*/
+.formulario__input:focus{
+	border: 3px solid #0075FF; /*Borde azul*/
+	outline: none; /*Quitar subrallado del borde*/
+	box-shadow: 3px 0px 30px rgba(163,163,163, 0.4); /*Sombreado en el input*/
+}
+
+/*Mensaje de alerta de los inputs*/
+.formulario__input-error {
+	font-size: 12px; /*letras más pequeñas*/
+	margin-bottom: 0; /*Margen 0 abajo*/
+	display: none; /*Quede el mensaje escondido*/
+}
+
+/*Cuando el error del input este activo se muestra*/
+.formulario__input-error-activo{
+	display: block;
+}
+
+/*Posicion del icono x dentro del input*/
+.formulario__validacion-estado{
+	position: absolute; /*Para introducir la x en el input*/
+	right: 10px; /*Derecha 10px*/
+	bottom: 15px; /*Abajo 15px*/
+	z-index: 100; /*Asegurarme de que esta arriba de otros elementos*/
+	font-size: 16xp; /*Tamaño Icono*/
+	opacity: 0; /*Para no mostrarlo*/
+}
+
+/*Propiedades Mensaje Error*/
+.formulario__mensaje {
+	height: 45px;
+	line-height: 45px;
+	background: #f66060;
+	padding: 0 15px;
+	border-radius: 3px;
+	display: none; /*Lo hacemos desaparecer, aparecerá cuando sea necesario*/
+}
+
+/*Formato tipo bloque*/
+.formulario__mensaje-activo{
+	display: block;
+}
+
+/*Centrar el mensaje de error*/
+.formulario__mensaje p {
+	margin: 0;
+}
+
+/*Propiedades Boton*/
+.formulario__grupo-btn-enviar {
+	display: flex; /*Elemento desplazable Flex*/
+	flex-direction: column; /*Elemento en estructura columna 100%*/
+	align-items: center; /*Centrar el elemento*/
+}
+
+/*Propiedades Boton*/
+.formulario__btn{
+	height: 45px;
+	line-height: 45px;
+	width: 30%;
+	background: #1DB301;
+	color: #fff;
+	font-weight: bold;
+	border: none;
+	border-radius: 3px;
+	cursor: pointer;
+	transition: .1s ease all;
+	max-width: 100%;
+}
+
+.formulario__btn:hover{
+	box-shadow: 3px 0px 30px rgba(163,163,163, 0.5);
+}
+
+/*------------ --------- Estilos para validación ---------*/
+.formulario__grupo-correcto .formulario__validacion-estado {
+	color: #1ed12d;
+	opacity: 1;
+}
+
+.formulario__grupo-incorrecto .formulario__label {
+	color: #bb2929;
+}
+
+.formulario__grupo-incorrecto .formulario__validacion-estado{
+	color: #bb2929;
+	opacity: 1;
+}
+
+.formulario__grupo-incorrecto .formulario__input{
+	border: 3px solid #bb2929;
+	
+}
+
+
+
+/*-------- ------- Mediaqueries ------ -------*/
+@media screen  and(max-width:  800px){
+	.formulario {
+		grid-template-columns: 1fr;
+	}
+
+	.formulario__mesaje, .formulario__grupo-btn-enviar{
+		grid-column: 1;
+	}
+
+	.formulario-btn{
+		width: 100%;
+	}
+}
+
+/* For mobile phones: */
+[class*="col-"] {
+	width: 100%;
+  }
+  
+  @media only screen and (min-width: 600px) {
+	/* For tablets: */
+	.col-s-1 {width: 8.33%;}
+	.col-s-2 {width: 16.66%;}
+	.col-s-3 {width: 25%;}
+	.col-s-4 {width: 33.33%;}
+	.col-s-5 {width: 41.66%;}
+	.col-s-6 {width: 50%;}
+	.col-s-7 {width: 58.33%;}
+	.col-s-8 {width: 66.66%;}
+	.col-s-9 {width: 75%;}
+	.col-s-10 {width: 83.33%;}
+	.col-s-11 {width: 91.66%;}
+	.col-s-12 {width: 100%;}
+  }
+  @media only screen and (min-width: 768px) {
+	/* For desktop: */
+	.col-1 {width: 8.33%;}
+	.col-2 {width: 16.66%;}
+	.col-3 {width: 25%;}
+	.col-4 {width: 33.33%;}
+	.col-5 {width: 41.66%;}
+	.col-6 {width: 50%;}
+	.col-7 {width: 58.33%;}
+	.col-8 {width: 66.66%;}
+	.col-9 {width: 75%;}
+	.col-10 {width: 83.33%;}
+	.col-11 {width: 91.66%;}
+	.col-12 {width: 100%;}
+  }
+
+
+
+
+
+
+
+
+
